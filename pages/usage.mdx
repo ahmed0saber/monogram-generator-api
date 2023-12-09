@@ -1,0 +1,33 @@
+# Usage
+
+All what you need is to send a post request to the following endpoint with the following properties:
+
+- first_letter: The first letter in the monogram picture.
+- second_letter: The second letter in the monogram picture.
+- text_color: The color of text in the monogram picture.
+- background_color: The color of background in the monogram picture.
+
+```js filename="example.js" copy
+fetch("https://monogram-generator-api.vercel.app/api/generate", {
+        method: "POST",
+        body: JSON.stringify({
+            first_letter: "A",
+            second_letter: "S",
+            text_color: "#FBFBFB",
+            background_color: "#101010",
+        })
+    })
+    .then(res => res.blob())
+    .then(data => {
+        const href = URL.createObjectURL(data)
+        const anchorElement = document.createElement('a')
+        anchorElement.href = href
+        anchorElement.download = `monogram.png`
+
+        document.body.appendChild(anchorElement)
+        anchorElement.click()
+
+        document.body.removeChild(anchorElement)
+        window.URL.revokeObjectURL(href)
+    })
+```

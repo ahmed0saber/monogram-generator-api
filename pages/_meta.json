@@ -1,0 +1,10 @@
+{
+  "index": "Introduction",
+  "usage": "Usage",
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://github.com/ahmed0saber/monogram-generator-api",
+    "newWindow": true
+  }
+}
